@@ -28,3 +28,9 @@ module "mysql" {
 }
 
 # rm -rf .terraform ; terraform init --backend-config=env-dev/state.tfvars ;terraform plan --var-file=env-dev/main.tfvars ; sleep 10;  terraform apply --var-file=env-dev/main.tfvars --auto-approve
+
+# Create a VPC Module
+module "vpc" {   
+    source = "git::https://github.com/Shripad13/tf-module-terraform.git"
+    env           = var.env
+}
