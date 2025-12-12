@@ -1,5 +1,9 @@
-variable "components" {}
+
 variable "env" {}
-variable "pwd" {
-    default = "ExpenseApp@1"
-}
+variable "vpc" {}
+variable "ssh_pwd" {}
+variable "vault_token" {}
+variable "tags" {}
+variable "eks" {}
+
+variable "rds" {}

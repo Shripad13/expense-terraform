@@ -2,21 +2,21 @@ env = "prod"
 
 components = {
 
-frontend = {
-    name = "frontend"
+  frontend = {
+    name          = "frontend"
     instance_type = "t3.medium"
-    port_no = 80
-}
+    port_no       = 80
+  }
 
-mysql = {
-    name = "mysql"
+  mysql = {
+    name          = "mysql"
     instance_type = "t3.micro"
-    port_no = 3306
-}
+    port_no       = 3306
+  }
 
-backend = {
-    name = "backend"
+  backend = {
+    name          = "backend"
     instance_type = "t3.medium"
-    port_no = 8080
-}
+    port_no       = 8080
+  }
 }
