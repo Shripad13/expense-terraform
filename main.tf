@@ -51,13 +51,16 @@ module "rds" {
   depends_on = [module.vpc]
   source     = "git::https://github.com/Shripad13/tf-module-rds.git"
 
-  #for_each = var.rds
+  for_each       = var.rds
   engine         = each.value["engine"]
   engine_version = each.value["engine_version"]
   env            = var.env
   family         = each.value["family"]
   instance_class = each.value["instance_class"]
-  subnet_ids     = module.db["main"].db_subnet_ids
+
+  eks_subnet_cidr = module.vpc["main"].eks_subnet_cidr
+  vpc_id          = module.vpc["main"].vpc_id
+  subnet_ids      = module.vpc["main"].rds_subnet_ids
 }
 
 # Create a EKS Module
