@@ -6,6 +6,7 @@ module "frontend" {
   env           = var.env
   port_no       = var.components["frontend"]["port_no"]
   pwd           = var.pwd
+  prometheus_server = var.prometheus_server
 }
 
 module "backend" {
@@ -16,6 +17,7 @@ module "backend" {
   env           = var.env
   port_no       = var.components["backend"]["port_no"]
   pwd           = var.pwd
+  prometheus_server = var.prometheus_server  
 }
 
 module "mysql" {
@@ -25,6 +27,7 @@ module "mysql" {
   env           = var.env
   port_no       = var.components["mysql"]["port_no"]
   pwd           = var.pwd
+  prometheus_server = var.prometheus_server  
 }
 
 # rm -rf .terraform ; terraform init --backend-config=env-dev/state.tfvars ;terraform plan --var-file=env-dev/main.tfvars ; sleep 10;  terraform apply --var-file=env-dev/main.tfvars --auto-approve
@@ -71,7 +74,7 @@ module "eks" {
   for_each    = var.eks
   tags        = var.tags
   env         = var.env
-  eks_version = each.value["eks_version"]
+  eks_version = "1.31" # each.value["eks_verison"]
   node_groups = each.value["node_groups"]
 
   subnet_ids = module.vpc["main"].eks_subnet_ids

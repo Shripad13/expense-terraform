@@ -8,3 +8,5 @@ variable "eks" {}
 
 variable "rds" {}
 variable "subnet_ids" {}
+
+variable "prometheus_server" {}

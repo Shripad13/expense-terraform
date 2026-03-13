@@ -72,3 +72,5 @@ rds = {
 
   }
 }
+
+prometheus_server =["prometheus.devsecopswithshri.site"]
